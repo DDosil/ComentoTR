@@ -40,17 +40,17 @@ class couponlist{
   }
   public function showRows(){//테이블 형태로 나타내기
     $tables="";
-    for($i=$this->tablepos;$i<$this->tablepos+100;$i++){ //tablepos ~ tablepos+99
-      $cn = $this->grouprows[$i]['couponno'];
-      $ut = $this->grouprows[$i]['usedtime'];
-      $an = $this->grouprows[$i]['accname'];
+    $tbp = $this->tablepos;
+    for($i=0;$i<100;$i++){ //tablepos ~ tablepos+99
+      $cn = $this->grouprows[$i+$tbp]['couponno'];
+      $ut = $this->grouprows[$i+$tbp]['usedtime'];
+      $an = $this->grouprows[$i+$tbp]['accname'];
       $tables.="<tr>";
       $tables.="<td>$cn</td>";
       $tables.="<td>$ut</td>";
       $tables.="<td>$an</td>";
       $tables.="</tr>";//HTML
     }
-    $this->tablepos+=1;//pos 변경함
     return $tables;
   }
 
@@ -80,6 +80,7 @@ $cplist = new couponlist();
   }
   ?>
 </table>
+
 <p><a href='managecoupon.php'>쿠폰 발행하기</a></p>
 <p><a href='couponstat.php'>쿠폰 통계 보기</a></p>
 <p><a href='logout.php'>로그아웃</a></p>

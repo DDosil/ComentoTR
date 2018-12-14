@@ -1,5 +1,5 @@
 <?php
-define ('COUPONPERGROUP', 200);//생성할 쿠폰 갯수 지정
+define ('COUPONPERGROUP', 100000);//생성할 쿠폰 갯수 지정
 function generateRandomString($prefix) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -42,10 +42,10 @@ class coupon{
           $i++;//생성수+1
         }
       }
-      $cplistsize = sizeof($cpnolist);
+      $cplistsize = sizeof($cpnolist);//생성한 쿠폰 갯수 뽑기
       for($i=0;$i<$cplistsize;$i++){
         $randno = mt_rand(1,10);
-        $tempname = $this->randAccName();
+        $tempname = $this->randAccName();//회원이름중 하나 뽑기
         if($randno>=6){//랜덤하게 1/2확률로 사용된 쿠폰
           $query = "INSERT INTO coupon VALUES ($group, '$cpnolist[$i]', NOW(), '$tempname')";
           $result = mysqli_query($link,$query);

@@ -1,5 +1,5 @@
 <?php
-define ('COUPONPERGROUP', 200);//그룹당 생성된 쿠폰 갯수
+define ('COUPONPERGROUP', 100000);//그룹당 생성된 쿠폰 갯
 class couponlist{
   public $grouplist = [];
   public $isused = [];

@@ -1,7 +1,6 @@
 <?php
 
 class couponlist{
-  public $var = '땜빵';
   public $grouplist = [];
   public $grouprows = [];
   public $tablepos = 0;

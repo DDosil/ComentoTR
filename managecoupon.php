@@ -1,7 +1,5 @@
 <?php
-
-
-
+define ('COUPONPERGROUP', 200);//생성할 쿠폰 갯수 지정
 function generateRandomString($prefix) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -35,7 +33,7 @@ class coupon{
       $i=0;//발행쿠폰수를
 
       $cpnolist = [];
-      while($i<200){//10만개 채울때까지
+      while($i<COUPONPERGROUP){//10만개 채울때까지
         $cpno = generateRandomString($prefix);//접두문자 3 + 랜덤생성 13의 랜덤쿠폰 생성
         if($key = array_search($cpno, $cpnolist)){//중복검색
           //검색성공시(중복이 있다면) 스킵

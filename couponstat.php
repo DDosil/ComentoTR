@@ -1,7 +1,6 @@
 <?php
-
+define ('COUPONPERGROUP', 200);//그룹당 생성된 쿠폰 갯수
 class couponlist{
-  public $var = '땜빵';
   public $grouplist = [];
   public $isused = [];
   public $tablepos = 0;
@@ -40,9 +39,9 @@ class couponlist{
     $tables="";
     foreach($this->grouplist as &$value){
       $cn = $this->isused[$value];
-      $cnperc = $cn/1000;
-      $cncn = 200-$cn;
-      $cncnperc = $cncn/1000;
+      $cnperc = $cn/COUPONPERGROUP*100;
+      $cncn = COUPONPERGROUP-$cn;
+      $cncnperc = $cncn/COUPONPERGROUP*100;
       $tables.="<tr>";
       $tables.="<td>$value</td>";
       $tables.="<td>$cn($cnperc %)</td>";
